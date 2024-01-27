@@ -4,8 +4,6 @@ import Paddle from "./paddle.js";
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-    // Cordova is now initialized.
-
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }
@@ -53,11 +51,9 @@ function handleMove(event) {
     const touch = event.touches ? event.touches[0] : event;
     player.position = (touch.clientY / window.innerHeight) * 100;
   }
-  
-  
 
 startBtn.addEventListener('click', ()=> {
-    card.style.display = 'none'
+    card.classList.add('hide');
     setTimeout(field,1000)
 })
 

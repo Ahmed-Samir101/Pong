@@ -82,6 +82,11 @@ body {
     -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
             box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
     font-family: 'Poppins',sans-serif;
+    transition: opacity 0.3s ease;
+}
+.card.hide {
+    opacity: 0;
+    pointer-events: none; /* Disable pointer events on hidden button */
 }
 h6{
     margin: 0;
@@ -94,7 +99,7 @@ h6{
 }
 .primary-text{
     color: #d5d5d5;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.7px;
     margin: 5px 0;
@@ -111,15 +116,23 @@ button{
     -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
     border: none;
-
 }
 
 button{
     width: 80%;
-    padding: 15px 0;
+    padding: 10px 0;
     position: absolute;
     left: 10%;
-    bottom: 20px;
+    bottom: 25px;
+    font-size: 19px;
     border-radius: 5px;
     outline: none;
+    transition: box-shadow 0.3s ease;
 }
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px hsl(var(--hue),var(--saturation),15%);
+}
+
+
