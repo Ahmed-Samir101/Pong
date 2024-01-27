@@ -1,4 +1,3 @@
-
 const INITAL_VELOCITY = 0.025
 const VELOCITY_INC = 0.00001
 

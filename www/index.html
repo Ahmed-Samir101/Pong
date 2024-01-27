@@ -2,29 +2,37 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+        <link rel="icon" href="/img/icon.png" type="image/png">
         <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
+        <title>Pong++</title>
     </head>
     <body>
+
+        <div id="card" class="card">
+            <div class="desc">
+                <h6 class="primary-text">Welcome To</h6>
+                <h6 class="secondary-text">Pong++</h6>
+            </div>
+            
+            <div class="settings">
+                <div class="diff">
+                    <!-- <h6>Difficulty:</h6> -->
+                </div>
+            </div>
+       <button id="start" class="primary-text">Start</button>
+    </div>
+
         <div class="score">
             <div id="player-score">0</div>
             <div id="computer-score">0</div>
         </div>
         <div id="ball"></div>
-        <div class="paddle left" id="player"></div>
+        <div class="paddle left" id="player"></div> 
         <div class="paddle right" id="computer"></div>
         
         <script src="cordova.js"></script>

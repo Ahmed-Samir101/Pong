@@ -17,6 +17,8 @@ const player = new Paddle(document.getElementById("player"))
 const computer = new Paddle(document.getElementById("computer"))
 const playerScore = document.getElementById("player-score")
 const computerScore = document.getElementById("computer-score")
+const startBtn = document.getElementById("start")
+const card = document.getElementById("card")
 
 let lastTime;
 function update(time) {
@@ -47,15 +49,27 @@ function handleLose() {
     computer.reset()
 }
 
-document.addEventListener('touchmove', (e)=>{
-    const touch = e.touches[0];
-    player.position = (touch.clientY / window.innerHeight) * 100
+function handleMove(event) {
+    const touch = event.touches ? event.touches[0] : event;
+    player.position = (touch.clientY / window.innerHeight) * 100;
+  }
+  
+  
+
+startBtn.addEventListener('click', ()=> {
+    card.style.display = 'none'
+    setTimeout(field,1000)
 })
 
-setTimeout(dow,2000)
-
-function dow() {
+function field() {
     window.requestAnimationFrame(update)
+    if ('ontouchstart' in window) {
+    // Touch devices
+    document.addEventListener('touchmove', handleMove);
+  } else {
+    // Desktop devices
+    document.addEventListener('mousemove', handleMove);
+  }
 }
 
 }
