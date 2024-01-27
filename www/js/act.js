@@ -1,106 +1,10 @@
-// import Ball from "./ball.js";
-// import Paddle from "./paddle.js";
-
-
-const INITAL_VELOCITY = 0.025
-const VELOCITY_INC = 0.00001
-
-class Ball {
-    constructor(ballElem){
-        this.ballElem = ballElem;
-        this.reset()
-    }
-
-    get x() {
-        return parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--x"))
-    }
-
-    set x(value){
-        this.ballElem.style.setProperty("--x", value)
-    }
-    get y() {
-        return parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--y"))
-    }
-
-    set y(value){
-        this.ballElem.style.setProperty("--y", value)
-    }
-
-    rect() {
-        return this.ballElem.getBoundingClientRect()
-    }
-
-    reset() {
-        this.x = 50
-        this.y = 50;
-        this.direction = {x: 0 }
-        while(Math.abs(this.direction.x) <= 0.2 || Math.abs(this.direction.y) >= 0.9) {
-            const heading = randNumBetween(0, 2*Math.PI)
-            this.direction = { x:Math.cos(heading), y:Math.sin(heading)}
-        }
-        this.velocity = INITAL_VELOCITY
-
-    }
-
-    update(delta, paddleRects) {
-        this.x += this.direction.x * this.velocity * delta;
-        this.y += this.direction.y * this.velocity * delta;
-        this.velocity += VELOCITY_INC * delta
-
-        const rect = this.rect()
-
-        if(rect.bottom >= window.innerHeight || rect.top <= 0){
-            this.direction.y *= -1;
-        }
-        if(paddleRects.some((r) => isColision(r,rect))){
-            this.direction.x *= -1;
-        }
-    }
-}
-
-function randNumBetween(min,max) {
-    return Math.random()* (max-min)+min
-}
-
-function isColision(rect,ball) {
-    return rect.left <= ball.right && rect.right >= ball.left && rect.top <= ball.bottom && rect.bottom >= ball.top
-}
-
-
-const SPEED = 0.02
-
-class Paddle {
-    constructor(paddleElem) {
-        this.paddleElem = paddleElem
-        this.reset()
-    }
-
-    get position() {
-        return parseFloat(getComputedStyle(this.paddleElem).getPropertyValue("--position"))
-    }
-
-    set position(value){
-        this.paddleElem.style.setProperty("--position", value)
-    }
-
-    rect() {
-        return this.paddleElem.getBoundingClientRect()
-    }
-
-    reset() {
-        this.position = 50
-    }
-
-    update(delta, ballY) {
-        this.position += SPEED * delta * (ballY-this.position)
-    }
-}
-
+import Ball from "./ball.js";
+import Paddle from "./paddle.js";
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
+    // Cordova is now initialized.
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
