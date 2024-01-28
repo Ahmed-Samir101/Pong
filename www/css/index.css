@@ -7,6 +7,7 @@
     --saturation: 50%;
     --forground-color: hsl(var(--hue),var(--saturation),75%);
     --background-color: hsl(var(--hue),var(--saturation),20%);
+    --ballWidth: 2.5;
 }
 body {
     margin: 0;
@@ -41,7 +42,7 @@ body {
     top: calc(var(--y) * 1vh);
     border-radius: 100%;
     transform: translate(-50%, -50%);
-    width: 2.5vh;
+    width: calc(var(--ballWidth) * 1vw);
     height: 2.5vh;
 }
 

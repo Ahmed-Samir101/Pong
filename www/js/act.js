@@ -17,6 +17,7 @@ const playerScore = document.getElementById("player-score")
 const computerScore = document.getElementById("computer-score")
 const startBtn = document.getElementById("start")
 const card = document.getElementById("card")
+const ballWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--ballWidth"))
 
 let lastTime;
 function update(time) {
@@ -33,7 +34,7 @@ function update(time) {
 
 function isLose() {
     const rect = ball.rect()
-    return rect.right >= window.innerWidth || rect.left <= 0
+    return rect.right > window.innerWidth+60 || rect.left < -60
 }
 
 function handleLose() {
@@ -43,8 +44,9 @@ function handleLose() {
     }else {
         computerScore.textContent = parseInt(computerScore.textContent)+1
     }
-    ball.reset()
+    ball.reset()    
     computer.reset()
+    
 }
 
 function handleMove(event) {
@@ -60,11 +62,9 @@ startBtn.addEventListener('click', ()=> {
 function field() {
     window.requestAnimationFrame(update)
     if ('ontouchstart' in window) {
-    // Touch devices
-    document.addEventListener('touchmove', handleMove);
+        document.addEventListener('touchmove', handleMove);
   } else {
-    // Desktop devices
-    document.addEventListener('mousemove', handleMove);
+        document.addEventListener('mousemove', handleMove);
   }
 }
 

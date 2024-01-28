@@ -60,8 +60,6 @@ function randNumBetween(min,max) {
 }
 
 function isColision(rect,ball) {
-    
-    console.log("col")
     return rect.left <= ball.right && rect.right >= ball.left && rect.top <= ball.bottom && rect.bottom >= ball.top
 }
 
