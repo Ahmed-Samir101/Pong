@@ -50,6 +50,7 @@ class Ball {
         }
         if(paddleRects.some((r) => isColision(r,rect))){
             this.direction.x *= -1;
+            playCollisionSound()
         }
     }
 }
@@ -59,7 +60,15 @@ function randNumBetween(min,max) {
 }
 
 function isColision(rect,ball) {
+    
+    console.log("col")
     return rect.left <= ball.right && rect.right >= ball.left && rect.top <= ball.bottom && rect.bottom >= ball.top
+}
+
+function playCollisionSound() {
+    const audio = new Audio('../audio/archivo.mp3');
+
+    audio.play();
 }
 
 export default Ball
