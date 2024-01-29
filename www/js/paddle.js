@@ -3,7 +3,7 @@ const SPEED = 0.01
 class Paddle {
     constructor(paddleElem) {
         this.paddleElem = paddleElem
-        this.reset()
+        // this.reset()
     }
 
     get position() {

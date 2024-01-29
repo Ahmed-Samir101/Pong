@@ -13,12 +13,12 @@ window.onload = () => {
 const ball = new Ball(document.getElementById("ball"))
 const player = new Paddle(document.getElementById("player"))
 const computer = new Paddle(document.getElementById("computer"))
-const playerScore = document.getElementById("player-score")
-const computerScore = document.getElementById("computer-score")
+const playerScoreElem = document.getElementById("player-score")
+const computerScoreElem = document.getElementById("computer-score")
 const startBtn = document.getElementById("start")
 const card = document.getElementById("card")
-const ballWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--ballWidth"))
-
+let playerScore = 0;
+let computerScore = 0;
 let lastTime;
 function update(time) {
     if(lastTime != null) {
@@ -39,14 +39,15 @@ function isLose() {
 
 function handleLose() {
     const rect = ball.rect()
-    if(rect.right >= window.innerWidth){
-        playerScore.textContent = parseInt(playerScore.textContent)+1
+    if(rect.right > window.innerWidth){
+        playerScore++;
+        playerScore.textContent = playerScore;
     }else {
-        computerScore.textContent = parseInt(computerScore.textContent)+1
+        computerScore++;
+        computerScore.textContent = computerScore;
     }
     ball.reset()    
     computer.reset()
-    
 }
 
 function handleMove(event) {
