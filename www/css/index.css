@@ -1,19 +1,24 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-:root{
+
+:root {
     --hue: 200;
     --saturation: 50%;
-    --forground-color: hsl(var(--hue),var(--saturation),75%);
-    --background-color: hsl(var(--hue),var(--saturation),20%);
+    --forground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
 }
+
 body {
     margin: 0;
     background-color: var(--background-color);
     overflow: hidden;
     height: 100vh;
 }
+
 .paddle {
     --position: 50;
 
@@ -24,9 +29,11 @@ body {
     width: 1vh;
     height: 10vh;
 }
-.paddle.left{
+
+.paddle.left {
     left: 1vw;
 }
+
 .paddle.right {
     right: 1vw;
 }
@@ -53,7 +60,7 @@ body {
     color: var(--forground-color);
 }
 
-.score > * {
+.score>* {
     flex-grow: 1;
     /* flex-basis: 0; */
     padding: 0 4vh;
@@ -61,64 +68,75 @@ body {
     opacity: 0.5;
 }
 
-.score > :first-child {
+.score> :first-child {
     text-align: right;
     border-right: .5vh solid var(--forground-color);
 }
 
-.card{
+.card {
+    position: absolute;
     height: 400px;
     width: 320px;
     background-color: rgba(255, 255, 255, 0.06);
     -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-    position: absolute;
-     margin: auto;
+    backdrop-filter: blur(20px);
+    margin: auto;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     border-radius: 8px;
-    -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
-            box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
-    font-family: 'Poppins',sans-serif;
+    -webkit-box-shadow: 20px 20px 22px rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 20px 22px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
     transition: opacity 0.3s ease;
 }
+
 .card.hide {
     opacity: 0;
-    pointer-events: none; /* Disable pointer events on hidden button */
+    pointer-events: none;
+    /* Disable pointer events on hidden button */
 }
-h6{
+
+h6 {
     margin: 0;
 }
-.desc{
+
+.desc {
     width: 100%;
     text-align: center;
     position: absolute;
     top: 16px;
 }
-.primary-text{
+
+.primary-text {
     color: #d5d5d5;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.7px;
     margin: 5px 0;
 }
-.secondary-text{
+
+.primary-text.playAgain {
+    background-color: rgba(214, 31, 7, 0.24);
+}
+
+.secondary-text {
     color: #c0c0c0;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1px;
     margin: 5px 0;
 }
-button{
-    background-color: rgba(255, 255, 255, 0.06);
+
+button {
+    background-color: rgba(202, 86, 9, 0.06);
     -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     border: none;
 }
 
-button{
+button {
     width: 80%;
     padding: 10px 0;
     position: absolute;
@@ -132,7 +150,18 @@ button{
 
 button:hover {
     cursor: pointer;
-    box-shadow: 0 0 10px hsl(var(--hue),var(--saturation),15%);
+    box-shadow: 0 0 10px hsl(var(--hue), var(--saturation), 15%);
 }
 
-
+#menu {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+#menu.show {
+    pointer-events: all;
+    opacity: 1;
+}
+/* #platAgain {
+    
+} */

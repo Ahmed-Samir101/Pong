@@ -10,41 +10,65 @@ function onDeviceReady() {
 
 window.onload = () => {
 
-const ball = new Ball(document.getElementById("ball"))
-const player = new Paddle(document.getElementById("player"))
+const computerScoreElem = document.getElementById("computer-score")
 const computer = new Paddle(document.getElementById("computer"))
 const playerScoreElem = document.getElementById("player-score")
-const computerScoreElem = document.getElementById("computer-score")
+const player = new Paddle(document.getElementById("player"))
+const playAgainBtn = document.getElementById("playAgain")
+const ball = new Ball(document.getElementById("ball"))
 const startBtn = document.getElementById("start")
 const card = document.getElementById("card")
+const menu = document.getElementById("menu")
+const stat = document.getElementById("stat")
 let playerScore = 0;
 let computerScore = 0;
+let animationId;
 let lastTime;
+
 function update(time) {
     if(lastTime != null) {
         const delta = time - lastTime  
         ball.update(delta, [player.rect(), computer.rect()])
         computer.update(delta,ball.y)
     }
-    if(isLose()) handleLose()
-
+    if(ballPass()) handle()
+    if(playerScore >= 5 || computerScore >= 5){
+        window.cancelAnimationFrame(animationId)
+        if(playerScore > computerScore){
+            stat.textContent = "You Win!!"
+        }else {
+            stat.textContent = "You Lose :("
+        }
+        console.log("End")
+        menu.classList.add('show')
+        return
+    }
     lastTime = time;
-    window.requestAnimationFrame(update)
+    animationId = window.requestAnimationFrame(update)
 }
 
-function isLose() {
+playAgainBtn.onclick = () => {
+    start()
+    playerScore=0
+    playerScoreElem.textContent = playerScore;
+    computerScore=0
+    computerScoreElem.textContent = computerScore;
+    menu.classList.remove('show')
+}
+
+function ballPass() {
     const rect = ball.rect()
-    return rect.right > window.innerWidth+60 || rect.left < -60
+    return rect.right > window.innerWidth || rect.left < 0
 }
 
-function handleLose() {
+function handle() {
     const rect = ball.rect()
     if(rect.right > window.innerWidth){
         playerScore++;
-        playerScore.textContent = playerScore;
+        playerScoreElem.textContent = playerScore;
     }else {
         computerScore++;
-        computerScore.textContent = computerScore;
+        computerScoreElem.textContent = computerScore;
     }
     ball.reset()    
     computer.reset()
@@ -55,13 +79,14 @@ function handleMove(event) {
     player.position = (touch.clientY / window.innerHeight) * 100;
   }
 
-startBtn.addEventListener('click', ()=> {
+startBtn.onclick = () => {
     card.classList.add('hide');
-    setTimeout(field,1000)
-})
+    console.log("Start")
+    setTimeout(start,1000)
+}
 
-function field() {
-    window.requestAnimationFrame(update)
+function start() {
+    animationId = window.requestAnimationFrame(update)
     if ('ontouchstart' in window) {
         document.addEventListener('touchmove', handleMove);
   } else {

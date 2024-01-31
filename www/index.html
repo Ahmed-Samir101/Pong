@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="icon" href="/img/icon.png" type="image/png">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Pong++</title>
-    </head>
-    <body>
 
-        <div id="card" class="card">
-            <div class="desc">
-                <h6 class="primary-text">Welcome To</h6>
-                <h6 class="secondary-text">Pong++</h6>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Pong++</title>
+</head>
+
+<body>
+
+    <div id="card" class="card">
+        <div class="desc">
+            <h6 class="primary-text">Welcome To</h6>
+            <h6 class="secondary-text">Pong++</h6>
+        </div>
+        <div class="settings">
+            <div class="diff">
+                <!-- <h6>Difficulty:</h6> -->
             </div>
-            
-            <div class="settings">
-                <div class="diff">
-                    <!-- <h6>Difficulty:</h6> -->
-                </div>
-            </div>
-       <button id="start" class="primary-text">Start</button>
+        </div>
+        <button id="start" class="primary-text">Start</button>
     </div>
 
-        <div class="score">
-            <div id="player-score">0</div>
-            <div id="computer-score">0</div>
+    <div id="menu" class="card">
+        <div class="desc">
+            <h6 id="stat" class="primary-text stat">You Win!!</h6>
         </div>
-        <div id="ball"></div>
-        <div class="paddle left" id="player"></div> 
-        <div class="paddle right" id="computer"></div>
-        
-        <script src="cordova.js"></script>
-        <script src="js/act.js" type="module"></script>
-    </body>
+        <button id="playAgain" class="primary-text playAgain">Play Again</button>
+    </div>
+
+    <div class="score">
+        <div id="player-score">0</div>
+        <div id="computer-score">0</div>
+    </div>
+    <div id="ball"></div>
+    <div class="paddle left" id="player"></div>
+    <div class="paddle right" id="computer"></div>
+
+    <script src="cordova.js"></script>
+    <script src="js/act.js" type="module"></script>
+</body>
+
 </html>
