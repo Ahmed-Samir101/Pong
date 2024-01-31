@@ -54,6 +54,7 @@ playAgainBtn.onclick = () => {
     computerScore=0
     computerScoreElem.textContent = computerScore;
     menu.classList.remove('show')
+    lastTime = null
 }
 
 function ballPass() {
