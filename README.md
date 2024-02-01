@@ -9,8 +9,6 @@ This app provides an enjoyable gaming experience with simple controls, smooth an
 - Single-player mode: Play against the computer AI.
 - Two-player mode: Compete against a friend on the same device. (Coming soon)
 - Adjustable difficulty: Choose from multiple difficulty levels to match your skill level. (Coming soon)
-- Score tracking: Keep track of the current score during gameplay.
-- Sound effects: Enjoy immersive audio effects that enhance the gaming experience. (In the making)
 - Responsive design: The app adapts to different screen sizes and orientations.
 
 ## Installation
