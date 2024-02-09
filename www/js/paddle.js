@@ -1,4 +1,12 @@
-const SPEED = 0.01
+import {selectedValue} from "./act.js"
+
+let aiSpeed; // Declare the variable outside the if statement
+
+if (selectedValue != null) {
+  aiSpeed = selectedValue; // Assign selectedValue to aiSpeed
+}
+
+console.log(aiSpeed);
 
 class Paddle {
     constructor(paddleElem) {
@@ -10,7 +18,7 @@ class Paddle {
         return parseFloat(getComputedStyle(this.paddleElem).getPropertyValue("--position"))
     }
 
-    set position(value){
+    set position(value) {
         this.paddleElem.style.setProperty("--position", value)
     }
 
@@ -23,7 +31,7 @@ class Paddle {
     }
 
     update(delta, ballY) {
-        this.position += SPEED * delta * (ballY-this.position)
+        this.position += aiSpeed * delta * (ballY - this.position)
     }
 }
 

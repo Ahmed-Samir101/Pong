@@ -14,9 +14,10 @@
 
 body {
     margin: 0;
-    background-color: var(--background-color);
-    overflow: hidden;
     height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    background-color: var(--background-color);
 }
 
 .paddle {
@@ -44,12 +45,12 @@ body {
 
     position: absolute;
     background-color: var(--forground-color);
+    width: 2.5vh;
+    height: 2.5vh;
     left: calc(var(--x) * 1vw);
     top: calc(var(--y) * 1vh);
     border-radius: 100%;
     transform: translate(-50%, -50%);
-    width: 2.5vh;
-    height: 2.5vh;
 }
 
 .score {
