@@ -1,4 +1,4 @@
-import {selectedValue} from "./act.js"
+import selectedValue from "./menu.js";
 
 let aiSpeed; // Declare the variable outside the if statement
 

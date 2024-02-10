@@ -1,4 +1,3 @@
-export let selectedValue = 0.01;
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
 
@@ -52,17 +51,6 @@ window.onload = () => {
         card.classList.add('hide');
         console.log("Start")
         setTimeout(start, 1000)
-        const radios = document.getElementsByName("radio");
-
-        for (let i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                selectedValue = radios[i].value;
-                if(selectedValue = "easy") selectedValue = 0.01
-                else if(selectedValue = "medium") selectedValue = 0.02
-                else selectedValue = 0.03
-                break;
-            }
-        }
     }
 
     playAgainBtn.onclick = () => {
