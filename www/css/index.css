@@ -239,7 +239,7 @@ button:hover {
     border: 3px solid var(--hue);
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
         -1px -1px 4px rgba(255, 255, 255, 0.5);
-    background: linear-gradient(to bottom right, hsl(var(--hue), var(--saturation), 75%), hsl(var(--hue), var(--saturation), 35%));
+    background: linear-gradient(to bottom right, hsl(200, var(--saturation), 75%), hsl(220, var(--saturation), 35%));
 }
 
 .radio-input .label:nth-child(2) .check {

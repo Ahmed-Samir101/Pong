@@ -1,6 +1,5 @@
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
-import { themes } from "./menu.js";
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
@@ -49,7 +48,6 @@ window.onload = () => {
     }
 
     startBtn.onclick = () => {
-        themes();
         card.classList.add('hide');
         console.log("Start")
         setTimeout(start, 1000)
