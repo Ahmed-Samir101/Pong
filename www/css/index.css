@@ -236,11 +236,22 @@ button:hover {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s;
-    border: 3px solid transparent;
+    border: 3px solid var(--hue); /* Set your desired border color here */
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
         -1px -1px 4px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(to bottom right, hsl(var(--hue), var(--saturation), 75%), hsl(var(--hue), var(--saturation), 35%));
+}
+.radio-input .label:nth-child(2) .check {
+    background: linear-gradient(to bottom right, #ff961e, #e52e71);
 }
 
+.radio-input .label:nth-child(3) .check {
+    background: linear-gradient(to bottom right, #00bfff, #228b22);
+}
+
+.radio-input .label:nth-child(4) .check {
+    background: linear-gradient(to bottom right, #ff12ff, #9400d3);
+}
 .radio-input .label input:checked+.check {
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
         -1px -1px 4px rgba(255, 255, 255, 0.5),
