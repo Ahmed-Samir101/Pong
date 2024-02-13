@@ -1,9 +1,9 @@
-import {selectedValue} from "./menu.js";
+import { selectedValue } from "./menu.js";
 
-let aiSpeed; // Declare the variable outside the if statement
+let aiSpeed;
 
 if (selectedValue != null) {
-  aiSpeed = selectedValue; // Assign selectedValue to aiSpeed
+    aiSpeed = selectedValue;
 }
 
 console.log(aiSpeed);

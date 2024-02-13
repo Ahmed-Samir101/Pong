@@ -1,6 +1,6 @@
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
-import { hueValue } from "./menu.js";
+import { themes } from "./menu.js";
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
@@ -21,7 +21,6 @@ window.onload = () => {
     const card = document.getElementById("card")
     const menu = document.getElementById("menu")
     const stat = document.getElementById("stat")
-    const root = document.documentElement;
     let playerScore = 0;
     let computerScore = 0;
     let animationId;
@@ -32,8 +31,6 @@ window.onload = () => {
             const delta = time - lastTime
             ball.update(delta, [player.rect(), computer.rect()])
             computer.update(delta, ball.y)
-            const hue = parseInt(getComputedStyle(root).getPropertyValue('--hue'))
-            root.style.setProperty('--hue', hue)
         }
         if (ballPass()) handle()
         if (playerScore >= 5 || computerScore >= 5) {
@@ -52,6 +49,7 @@ window.onload = () => {
     }
 
     startBtn.onclick = () => {
+        themes();
         card.classList.add('hide');
         console.log("Start")
         setTimeout(start, 1000)
